@@ -15,7 +15,7 @@ const messaging = require('../messaging');
 const plugins = require('../plugins');
 const batch = require('../batch');
 
-console.log("AmeliaKratzer");
+console.log('AmeliaKratzer');
 
 module.exports = function (User) {
 	const deletesInProgress = {};
@@ -86,7 +86,7 @@ module.exports = function (User) {
 	}
 
 	User.deleteAccount = async function (uid) {
-		console.log("AmeliaKratzer");
+		console.log('AmeliaKratzer');
 		if (deletesInProgress[uid] === 'user.deleteAccount') {
 			throw new Error('[[error:already-deleting]]');
 		}
@@ -95,7 +95,7 @@ module.exports = function (User) {
 		await removeFromSortedSets(uid);
 		const userData = await db.getObject(`user:${uid}`);
 
-		if (!userData?.username) {
+		if (!userData || !userData.username) {
 			delete deletesInProgress[uid];
 			throw new Error('[[error:no-user]]');
 		}

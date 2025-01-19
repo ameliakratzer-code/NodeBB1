@@ -95,7 +95,7 @@ module.exports = function (User) {
 		await removeFromSortedSets(uid);
 		const userData = await db.getObject(`user:${uid}`);
 
-		if (!userData || !userData.username) {
+		if (!userData?.username) {
 			delete deletesInProgress[uid];
 			throw new Error('[[error:no-user]]');
 		}

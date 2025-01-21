@@ -15,7 +15,7 @@ const messaging = require('../messaging');
 const plugins = require('../plugins');
 const batch = require('../batch');
 
-console.log('AmeliaKratzer');
+console.log('AmeliaKratzerTest');
 
 module.exports = function (User) {
 	const deletesInProgress = {};
